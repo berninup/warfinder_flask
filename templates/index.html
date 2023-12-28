@@ -16,5 +16,8 @@
     {% for item in data %}
     <li>{{ item.name }}</li>
     {% endfor %}
+
+    <a href="{{ url_for('index.home', page=current_page-1) }}">Previous</a>
+    <a href="{{ url_for('index.home', page=current_page+1)}}">Next</a>
   </body>
 </html>

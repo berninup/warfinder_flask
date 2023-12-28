@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .row {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .card {
+    background-color: #f0f0f0; /* Light grey background */
+    border-radius: 25px; /* Rounded corners */
+    padding: 10px 20px; /* Padding inside the cards */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center;
+    width: 100px; /* Fixed width, adjust as needed */
+  }
+  
+  .large-card {
+    width: 200px; /* Larger width for the main card */
+    font-size: 1.5em; /* Larger text for the main card */
+  }
+  

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{{card.name}}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    </head>
+    <body>     
+    
+
+<div class="container">
+  <div class="row">
+    <div class="card">Strike: {{card.strike}}</div>
+    <div class="card">Name: {{card.name}}</div>
+    <div class="card">Rank: {{card.rank}}</div>
+    <div class="card">Sorcery: {{card.sorcery}}</div>
+  </div>
+  <div class="row">
+    <div class="card">Armor: {{card.armor}}</div>
+    <div class="large-card">Abilities:
+        <ul>
+            {% set abilities = card.abilities.strip('[]').split(',') %}
+        {%for ability in abilities%}
+            <li>{{ ability.strip().strip('"') }}</li>
+        {% endfor %}
+        </ul>
+    </div>
+    <div class="card">Warding: {{card.warding}}</div>
+  </div>
+  <div class="row">
+    <div class="card">Movement: {{card.movement}}</div>
+    <div class="card">HP: {{card.hp}}</div>
+    <div class="card">Range: {{card.ranged}}</div>
+  </div>
+  <div class="card">Rarity: {{card.rarity}}</div>
+</div>
+<a href="{{ url_for('edit_card.show_edit_card_form', card_name=card.name) }}" >Edit Name </a>
+<a href="{{ url_for('index.home')}}">Index</a>
+    </body>
+</html>
