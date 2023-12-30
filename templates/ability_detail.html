@@ -7,18 +7,13 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Edit {{card.name}}</title>
+        <title>{{ability.name}}</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
     </head>
     <body>
-        <h1>Edit Card Name</h1>
-        <form method="post" action="{{ url_for('edit_card.edit_card_name', card_name=card.name )}}">
-           <label for="card_name">New Name:</label>
-           <input type="text" name="card_name" value="{{ card.name }}" required>
-           <input type="submit" value="Update Name">
-        </form>       
-        
+        {{ability.name}}
+        <a href="{{ url_for('index.home')}}">Index</a>
     </body>
 </html>

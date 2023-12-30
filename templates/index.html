@@ -10,14 +10,48 @@
     <title>Warfinder</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
-    {% for item in data %}
-    <li>{{ item.name }}</li>
-    {% endfor %}
+    <section class="section">
+      <div class="container">
+          <!-- Card List -->
+          <div class="columns is-multiline">
+              {% for card in data %}
+                  <div class="column is-one-quarter">
+                      <div class="card">
+                          <header class="card-header">
+                              <p class="card-header-title">
+                                  {{ card.name }}
+                              </p>
+                          </header>
+                          <div class="card-content">
+                              <div class="content">
+                                  {{ card.rank }}
+                                  <br>
+                                  <a href="{{ url_for('show_card.card_show', card_name = card.name) }}">Learn more</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              {% endfor %}
+          </div>
 
-    <a href="{{ url_for('index.home', page=current_page-1) }}">Previous</a>
-    <a href="{{ url_for('index.home', page=current_page+1)}}">Next</a>
+
+
+
+    <nav class="pagination" rolle="navigation" aria-label="pagination">
+
+
+    <a href="{{ url_for('index.home', page=current_page-1) }}" class="pagination-previous">Previous</a> 
+    <a href="{{ url_for('index.home', page=current_page+1)}}" class="pagination-next">Next</a>
+
+    </nav>
+    <div class="has-text-centered">
+      <a href={{ url_for('create_ability.create_ability')}}>Add Ability</a>
+
+    </div>
+
+
   </body>
 </html>
