@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   </head>
   <body>
+    {% include 'abilities_dropdown.html' %}
     <section class="section">
       <div class="container">
           <!-- Card List -->
@@ -48,7 +49,7 @@
 
     </nav>
     <div class="has-text-centered">
-      <a href={{ url_for('create_ability.create_ability')}}>Add Ability</a>
+      <a href={{ url_for('create_ability.create_ability')}} class="button">Add Ability</a>
 
     </div>
 

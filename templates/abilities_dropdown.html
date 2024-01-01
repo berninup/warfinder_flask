@@ -1,0 +1,12 @@
+<div class="navbar-item has-dropdown is-hoverable">
+    <a class="navbar-link">
+        Abilities
+    </a>
+    <div class="navbar-dropdown">
+        {% for ability in abilities %}
+            <a href="{{ url_for('show_ability.ability_show', ability_name=ability.name)}}" class="navbar-item">
+                {{ ability.name }}
+            </a>
+            {% endfor %}
+        </div>
+</div>

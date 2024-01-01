@@ -13,59 +13,65 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     </head>
     <body>     
-    
 
-      <section class="section">
-        <div class="container">
-            <div class="columns is-multiline">
-                <div class="column is-one-quarter">
-                    <div class="box">Strike: {{ card.strike }}</div>
-                </div>
-                <div class="column is-one-quarter">
-                    <div class="box">Name: {{ card.name }}</div>
-                </div>
-                <div class="column is-one-quarter">
-                    <div class="box">Rank: {{ card.rank }}</div>
-                </div>
-                <div class="column is-one-quarter">
-                    <div class="box">Sorcery: {{ card.sorcery }}</div>
-                </div>
-    
-                <div class="column is-one-quarter">
-                    <div class="box">Armor: {{ card.armor }}</div>
-                </div>
-                <div class="column is-half">
-                    <div class="box">Abilities: 
-                        <ul>
-                            {% for ability in abilities %}
-                                <li><a href="{{ url_for('show_ability.ability_show', ability_name=ability.strip().strip('"')) }}">{{ ability.strip().strip('"') }}</a></li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-                <div class="column is-one-quarter">
-                    <div class="box">Warding: {{ card.warding }}</div>
-                </div>
-    
-                <div class="column is-one-quarter">
-                    <div class="box">Movement: {{ card.movement }}</div>
-                </div>
-                <div class="column is-one-quarter">
-                    <div class="box">HP: {{ card.hp }}</div>
-                </div>
-                <div class="column is-one-quarter">
-                    <div class="box">Range: {{ card.range }}</div>
-                </div>
-                <div class="column is-one-quarter">
-                    <div class="box">Rarity: {{ card.rarity }}</div>
-                </div>
-            </div>
-    
-            <div class="buttons">
-                <a class="button is-info" href="{{ url_for('edit_card.show_edit_card_form', card_name=card.name) }}">Edit Name</a>
-                <a class="button is-light" href="{{ url_for('index.home')}}">Index</a>
-            </div>
+    <section class="section">
+      <div class="container">
+      <div class="columns is-multiline">
+        <div class="column is-one-quarter">
+          <div class="box">Strike </br> {{ card.strike }}</div>          
         </div>
+        <div class ="column">
+          <div class="box">Name </br> {{ card.name }}</div>          
+        </div>
+        <div class="column is-one-quarter">
+          <div class="box">Armor </br> {{ card.armor }}</div>          
+        </div>
+      </div>
+      <div class="columns is-multiline">
+        <div class="column is-one-quarter">
+          <div class="box">Sorcery </br> {{ card.sorcery }}</div>          
+        </div>
+        <div class="column">
+          <div class="box">Rank </br> {{ card.rank }}</div>          
+        </div>
+        <div class="column is-one-quarter">
+          <div class="box">Warding </br> {{ card.warding }}</div>          
+        </div>
+      </div>
+      <div class="columns is-multiline">
+        <div class="column">
+          <div class="box">Abilities </br>
+            <ul>
+              {% set abilities_list = card.abilities.strip('[]"').split(',') %}
+              {% for ability in abilities_list %}
+                  <li><a href="{{ url_for('show_ability.ability_show', ability_name=ability.strip().strip('"')) }}">{{ ability.strip().strip('"') }}</a></li>
+              {% endfor %}
+          </ul>
+          </div>          
+        </div>
+      </div>
+      <div class="columns is-multiline">
+        <div class="column">
+          <div class="box">Rarity </br> {{ card.rarity }}</div>          
+        </div>        
+      </div>
+      <div class="columns is-multiline">
+        <div class="column is-one-third">
+          <div class="box">Movement </br> {{ card.movement }}</div>          
+        </div>
+        <div class="column is-one-third">
+          <div class="box">HP </br> {{ card.hp }}</div>          
+        </div>
+        <div class="column is-one-third">
+          <div class="box">Range </br> {{ card.ranged }}</div>          
+        </div>
+      </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <a class="button is-info" href="{{ url_for('edit_card.show_edit_card_form', card_name=card.name) }}">Edit Name</a>
+      <a class="button is-light" href="{{ url_for('index.home')}}">Index</a>
+  </div>
     </section>
     </body>
 </html>
